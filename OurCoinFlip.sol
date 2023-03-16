@@ -10,7 +10,9 @@ contract OurCoinFlip {
 
     // the victimContractAddr will let us work with the Ethernaut deployment of the vulnerable contract!
     constructor(address _victimContractAddr) {
-        victimContract = CoinFlip(_victimContractAddr); // remember we instantiate an existing contract by supplying it's address.
+        // remember we instantiate an existing contract by supplying it's address.
+        // if it WASN'T an existing contract, we'd use the new keyword
+        victimContract = /* new */CoinFlip(_victimContractAddr); 
     }
 
     function attack_flip() public {
